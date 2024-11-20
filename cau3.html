@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+    <h1>Chương trình Tính Số Ngày trong Tháng</h1>
+    <p>Hãy nhập chuỗi định dạng MM/yyyy trong cửa sổ bật lên để kiểm tra.</p>    
+</body>
+<script>
+    // Hàm kiểm tra năm nhuận
+function kiemTraNamNhuan(nam) {
+    return (nam % 4 === 0 && nam % 100 !== 0) || (nam % 400 === 0);
+}
+</script>
+</html>

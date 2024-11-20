@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    function nhapMang() {
+    // Nhập số lượng phần tử (tối đa 50)
+    let n = parseInt(prompt("Nhập số lượng phần tử (tối đa 50):"));
+    while (isNaN(n) || n < 1 || n > 50) {
+        alert("Số phần tử phải là một số nguyên từ 1 đến 50.");
+        n = parseInt(prompt("Nhập số lượng phần tử (tối đa 50):"));
+    }
+
+    // Nhập các phần tử của mảng
+    let mang = [];
+    for (let i = 0; i < n; i++) {
+        let so = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+        while (isNaN(so)) {
+            alert("Vui lòng nhập một số nguyên hợp lệ!");
+            so = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+        }
+        mang.push(so);
+    }
+    return mang;
+}
+
+function tinhTrungBinhChiaHetCho3(mang) {
+    // Lọc các số chia hết cho 3
+    let cacSoChiaHetCho3 = mang.filter(so => so % 3 === 0);
+    if (cacSoChiaHetCho3.length === 0) {
+        return null; // Không có số nào chia hết cho 3
+    }
+    // Tính trung bình cộng
+    let tong = cacSoChiaHetCho3.((sum, so) => sum + so, 0);
+    return tong / cacSoChiaHetCho3.length;
+}
+
+function main() {
+    // Nhập mảng
+    let mang = nhapMang();
+    console.log("Mảng vừa nhập:", mang);
+
+    // Tính trung bình cộng và hiển thị
+    let trungBinh = tinhTrungBinhChiaHetCho3(mang);
+    if (trungBinh !== null) {
+        console.log(`Trung bình cộng các số chia hết cho 3: ${trungBinh}`);
+        alert(`Trung bình cộng các số chia hết cho 3: ${trungBinh}`);
+    } else {
+        console.log("Không có số nào trong mảng chia hết cho 3.");
+        alert("Không có số nào trong mảng chia hết cho 3.");
+    }
+}
+main();
+</script>
+</html>

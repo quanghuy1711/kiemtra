@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra Số Hoàn Hảo</title>
+</head>
+<body>
+    <h1>Kiểm tra Số Hoàn Hảo</h1>
+</body>
+<script>
+    // Hàm kiểm tra số hoàn hảo
+function kiemTraSoHoanHao(so) {
+    if (so <= 0 || !Number.isInteger(so)) {
+        return false; // Số không hợp lệ
+    }
+
+    let tongUoc = 0;
+
+    // Tính tổng các ước của số (trừ chính nó)
+    for (let i = 1; i <= so / 2; i++) {
+        if (so % i === 0) {
+            tongUoc += i;
+        }
+    }
+
+    // Kiểm tra nếu tổng các ước bằng chính số đó
+    return tongUoc === so;
+}
+
+function main() {
+    const so = parseInt(prompt("Nhập một số nguyên dương để kiểm tra số hoàn hảo:"));
+
+    if (isNaN(so) || so <= 0) {
+        alert("Vui lòng nhập một số nguyên dương hợp lệ.");
+        console.log("Vui lòng nhập một số nguyên dương hợp lệ.");
+        return;
+    }
+
+    const ketQua = kiemTraSoHoanHao(so);
+    if (ketQua) {
+        alert(`${so} là số hoàn hảo.`);
+        console.log(`${so} là số hoàn hảo.`);
+    } else {
+        alert(`${so} không phải là số hoàn hảo.`);
+        console.log(`${so} không phải là số hoàn hảo.`);
+    }
+}
+main();
+</script>
+</html>
